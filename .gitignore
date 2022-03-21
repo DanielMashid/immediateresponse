@@ -1,0 +1,14 @@
+.idea
+.vscode
+venv
+code/client/**/node_modules
+code/server/src/**/.env
+out
+build/releases
+_pycache_
+bin
+lib
+lib64
+share
+pyvenv.cfg
+*.iml
