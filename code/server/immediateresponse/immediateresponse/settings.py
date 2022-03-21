@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'immediateresponse.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-       'default': {
+    'default': {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'immediateresponse',
             'USER': 'immediateresponse_db_root',
@@ -83,7 +83,7 @@ DATABASES = {
             'HOST': 'localhost',
             'PORT': '3306',
         },
-    }
+}
 
 
 
