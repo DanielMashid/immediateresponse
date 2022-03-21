@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -74,10 +75,7 @@ WSGI_APPLICATION = 'immediateresponse.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        'default': {
+       'default': {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'immediateresponse',
             'USER': 'immediateresponse_db_root',
@@ -86,7 +84,7 @@ DATABASES = {
             'PORT': '3306',
         },
     }
-}
+
 
 
 # Password validation
