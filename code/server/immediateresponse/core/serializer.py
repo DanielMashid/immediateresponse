@@ -1,10 +1,10 @@
 from rest_framework import serializers
 
-from .models import User, AvatarImage, Organization, EventImage, Event
+from .models import Profile, AvatarImage, Organization, EventImage, Event
 
-class UserSerializer(serializers.ModelSerializer):
+class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = Profile
         field = "__all__"
 
 
