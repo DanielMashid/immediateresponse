@@ -12,6 +12,7 @@ class Organization(models.Model):
 class AvatarImage(models.Model):
     avatar_image = models.CharField(max_length=100)
 
+#made the user work one to one using django user manager.
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     organization_number = models.ForeignKey(Organization,on_delete=models.CASCADE,related_name="orgumber",null=True)
