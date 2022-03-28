@@ -34,6 +34,7 @@ class EventImage(models.Model):
     event_image = models.CharField(max_length=100,null=True)
 
 class Event(models.Model):
+    objects = models.Manager()
     reported_user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="reportuser",null=True)  # temporary
     longitude = models.CharField(max_length=100,null=True)
     latitude = models.CharField(max_length=100,null=True)
