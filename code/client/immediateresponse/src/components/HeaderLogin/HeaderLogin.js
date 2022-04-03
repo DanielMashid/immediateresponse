@@ -1,26 +1,19 @@
 import {Typography} from "@mui/material";
 import React from "react";
-import {AppBar, Container, Toolbar} from "@material-ui/core";
+import {AppBar, IconButton, Toolbar,} from "@material-ui/core";
+import useStyles from './styles'
 
 const HeaderLoginFunc = () => {
-    return (
-
-        <AppBar position="static" sx={{bgcolor: "#b21800", color: "black"}}>
-            <Container maxWidth="xl">
-                <Toolbar disableGutters>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-
-                        sx={{mr: 2, display: {xs: 'none', md: 'flex'}}}
-
-                    >
-                        תגובה מיידית - התחברות
-                    </Typography>
-                </Toolbar>
-            </Container>
-        </AppBar>
-    )
+ const classes = useStyles;
+  
+  return (
+      <AppBar position="static" style={{ background: '#b21800' ,color : "black",alignItems: 'center'}}>
+        <Toolbar variant="dense">
+          <Typography variant="h6" color="inherit">
+                      התחברות - תגובה מיידית
+          </Typography>
+        </Toolbar>
+      </AppBar>
+  );
 }
 export default HeaderLoginFunc
