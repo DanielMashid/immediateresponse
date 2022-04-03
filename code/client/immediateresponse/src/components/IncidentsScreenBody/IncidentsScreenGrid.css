@@ -1,5 +1,17 @@
-
 .mainText3 {
-justify-content: center;
+    position: absolute;
+    left: 60%;
+
+}
+
+.mainText4 {
+    position: absolute;
+    left: 10%;
+
+}
+
+.mainText5 {
+    flex-direction: column;
+    background: darkgray;
 }
 

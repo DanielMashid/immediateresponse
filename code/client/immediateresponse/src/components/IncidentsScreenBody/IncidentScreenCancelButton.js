@@ -7,7 +7,10 @@ const useStyles = makeStyles((theme) => ({
     button: {
         margin: theme.spacing(1),
         color: "black",
-        backgroundColor: "orangered"
+        backgroundColor: "orangered",
+        padding: '0 30px',
+        marginTop: "40%",
+        marginLeft: "35%"
     },
 }));
 
