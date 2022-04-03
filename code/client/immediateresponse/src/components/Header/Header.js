@@ -15,7 +15,7 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 
 
-const pages = ['מסך ראשי', 'האירועים שלי', 'התנתק',];
+const pages = ['מסך ראשי', 'האירועים שלי', 'התנתק'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
