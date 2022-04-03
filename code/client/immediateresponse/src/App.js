@@ -26,8 +26,9 @@ function App() {
         // </CssBaseline>
 
         <CssBaseline>
+          
             <LoginScreen />
-            <img src={sosButton} alt="sosButton" className="center"></img>
+           {/* <img src={sosButton} alt="sosButton" className="center"></img> */}
         </CssBaseline>
     );
 }
