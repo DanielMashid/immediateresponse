@@ -2,15 +2,23 @@ import HeaderLogin from "../../components/HeaderLogin/HeaderLogin";
 import UserDetails from "../../components/LoginScreenBody/UserDetails";
 import ImmediateResponseImg from "../../components/ImmediateResponseImg/ImmediateResponseImg";
 import LoginButton from "../../components/Button/button";
+import { CssBaseline } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const LoginScreen = () => {
     return (
-        <div>
+        <CssBaseline>
             <HeaderLogin/>
             <UserDetails/>
+
+            <Link to="/sos">  
+            
             <LoginButton/>
-            <img src={ImmediateResponseImg } alt="sosButton" className="center"></img>
-        </div>
+
+            </Link>
+          
+            <ImmediateResponseImg/>
+        </CssBaseline>
     )
 }
 

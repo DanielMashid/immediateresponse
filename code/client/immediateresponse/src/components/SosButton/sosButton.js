@@ -1,4 +1,4 @@
-import sosButton from '../assets/sos.png'
+import sosButton from '../assets/sos.png';
 
 
 export default sosButton
