@@ -2,6 +2,7 @@ from rest_framework import serializers
 
 from .models import Profile, AvatarImage, Organization, EventImage, Event
 
+
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
@@ -19,6 +20,7 @@ class OrganizationSerializer(serializers.ModelSerializer):
         model = Organization
         fields = '__all__'
 
+
 class EventImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = EventImage
@@ -28,4 +30,4 @@ class EventImageSerializer(serializers.ModelSerializer):
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = '__all__'  
+        fields = '__all__'
