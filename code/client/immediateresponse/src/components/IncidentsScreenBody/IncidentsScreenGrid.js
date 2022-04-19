@@ -10,6 +10,7 @@ function SimpleText() {
     const getLocation = () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(getCoordinates, handlerLocationError);
+            printState()
         } else {
             alert("Geolocation is not supported by this browser.")
         }
@@ -17,7 +18,7 @@ function SimpleText() {
     const getCoordinates = (position) => {
         setLatitude(position.coords.latitude)
         setLongitude(position.coords.longitude)
-        printState()
+
     }
     const handlerLocationError = (error) => {
         switch (error.code) {

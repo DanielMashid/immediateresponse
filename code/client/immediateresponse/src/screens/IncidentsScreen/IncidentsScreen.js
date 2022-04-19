@@ -5,12 +5,13 @@ import IncidentScreenCancelButton from "../../components/IncidentsScreenBody/Inc
 import Header from "../../components/Header/Header";
 import { CssBaseline } from "@mui/material";
 import { Link } from 'react-router-dom'
+import HeaderIncident from "../../components/HeaderIncident/HeaderIncident";
 
 
 const IncidentsScreen = () => {
     return (
         <CssBaseline>
-            <Header />
+            <HeaderIncident />
             <IncidentsScreenTopText/>
             <IncidentsScreenGrid/>
             

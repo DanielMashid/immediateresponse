@@ -15,7 +15,6 @@ function sosScreen() {
             </Link>
             <img src={SaveAndHoldButton} alt="SaveAndHoldButton"></img>
           </div>
-               
         </CssBaseline>
 
   )
