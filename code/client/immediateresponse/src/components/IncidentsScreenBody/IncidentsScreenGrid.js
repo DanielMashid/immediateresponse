@@ -10,6 +10,7 @@ import {Button, ButtonGroup} from "@material-ui/core";
 import Report_incident from "../../Services/api/api";
 
 function SimpleText() {
+
     const incidentContext = useContext(IncidentContext);
 
     const [latitude, setLatitude] = React.useState(null);
@@ -87,5 +88,5 @@ function SimpleText() {
     );
 }
 
-export default SimpleText
+export default SimpleText;
 
