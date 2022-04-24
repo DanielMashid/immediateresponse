@@ -24,4 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('core.urls')),
     # path(f'{api_prefix}', include(immediateresponse_urls)),
+    path('chat/', include('chat.urls'))
 ]

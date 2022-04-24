@@ -6,20 +6,18 @@ import { CssBaseline } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const LoginScreen = () => {
-    return (
-        <CssBaseline>
-            <HeaderLogin/>
-            <UserDetails/>
+  return (
+    <CssBaseline>
+      <HeaderLogin />
+      <UserDetails />
 
-            <Link to="/sos">  
-            
-            <LoginButton/>
+      <Link to="/sos">
+        <LoginButton />
+      </Link>
 
-            </Link>
-          
-            <ImmediateResponseImg/>
-        </CssBaseline>
-    )
-}
+      <ImmediateResponseImg />
+    </CssBaseline>
+  );
+};
 
-export default LoginScreen
+export default LoginScreen;
