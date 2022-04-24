@@ -2,11 +2,7 @@ import React, { useContext } from "react";
 import "./IncidentsScreenGrid.css";
 import { Button, ButtonGroup } from "@material-ui/core";
 import { Link, useNavigate } from "react-router-dom";
-
 import IncidentContext from "../../context/IncidentContext";
-import React from "react";
-import './IncidentsScreenGrid.css'
-import {Button, ButtonGroup} from "@material-ui/core";
 import Report_incident from "../../Services/api/api";
 
 function SimpleText() {
