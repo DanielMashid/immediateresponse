@@ -4,24 +4,20 @@ import IncidentsScreenGrid from "../../components/IncidentsScreenBody/IncidentsS
 import IncidentScreenCancelButton from "../../components/IncidentsScreenBody/IncidentScreenCancelButton";
 import Header from "../../components/Header/Header";
 import { CssBaseline } from "@mui/material";
-import { Link } from 'react-router-dom'
-
+import { Link } from "react-router-dom";
 
 const IncidentsScreen = () => {
-    return (
-        <CssBaseline>
-            <Header />
-            <IncidentsScreenTopText/>
-            <IncidentsScreenGrid/>
-            
-            <Link to="/sos">
+  return (
+    <CssBaseline>
+      <Header />
+      <IncidentsScreenTopText />
+      <IncidentsScreenGrid />
 
-              <IncidentScreenCancelButton/>
+      <Link to="/sos">
+        <IncidentScreenCancelButton />
+      </Link>
+    </CssBaseline>
+  );
+};
 
-            </Link>
-            
-        </CssBaseline>
-    )
-}
-
-export default IncidentsScreen
+export default IncidentsScreen;
