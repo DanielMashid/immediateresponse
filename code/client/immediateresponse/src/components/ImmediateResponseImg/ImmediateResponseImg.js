@@ -5,7 +5,7 @@ import React from 'react'
 function img() {
   return (
     <div align="center">
-          <img src={ImmediateResponseImg } alt="mainimg"></img>
+          <img src={ImmediateResponseImg } style={{"padding-top": "20px"}} alt="mainimg"></img>
     </div>
   )
 }

@@ -1,9 +1,9 @@
-//import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./screens/LoginScreen/loginScreen";
-import Sos from "./screens/SosScreen/sosScreen";
-import Incidents from "./screens/IncidentsScreen/IncidentsScreen";
-import Chat from "./screens/ChatScreen/chatScreen";
+import React from 'react'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Login from './screens/LoginScreen/loginScreen';
+import Sos from './screens/SosScreen/sosScreen'
+import Incidents from './screens/IncidentsScreen/IncidentsScreen'
+import Chat from './screens/ChatScreen/chatScreen'
 
 function App() {
   return (
@@ -19,6 +19,6 @@ function App() {
       </Router>
     </div>
   );
-}
 
+}
 export default App;
