@@ -1,11 +1,9 @@
-from importlib.resources import contents
 
 from django.http import HttpResponse
 
-from .mail import send_email, mail_content
-from .serializer import EventImageSerializer, EventSerializer
+from .mail import send_email
+from .serializer import EventSerializer
 from .models import Event
-from django.shortcuts import render
 from rest_framework import status
 from rest_framework.decorators import api_view, renderer_classes
 from rest_framework.renderers import JSONRenderer

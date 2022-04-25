@@ -1,8 +1,6 @@
 # using SendGrid's Python Library
 # https://github.com/sendgrid/sendgrid-python
 import os
-import logging
-from django.conf import settings
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
@@ -13,7 +11,7 @@ supervisorMail = {
     "estuary_incident": ["danielmashid1@gmail.com"],
     "security_incident": ["danielmashid1@gmail.com"],
     "safety_person_incident": ["danielmashid1@gmail.com"],
-    "fire_incident": ["danielmashid1@gmail.com", "dorx33@gmail.com"],
+    "fire_incident": ["danielmashid1@gmail.com"],
     "materials_incident": ["danielmashid1@gmail.com"],
     "safety_property_incident": ["danielmashid1@gmail.com"],
 }
@@ -35,7 +33,10 @@ from_email = 'immediate.response.sos@gmail.com'
 def mail_content(latitude, longitude):
     content = f"<h2>מיקום האירוע</h2>" \
               f"<p>latitude is: {latitude}</p> <p>longitude is: {longitude}</p>" \
-              f"<h3>Google Maps Reverse Geolocation</h3> https://maps.google.com/maps?z=12&t=m&q=loc:{latitude}+{longitude}"
+              f"<h2>Google Maps Reverse Geolocation</h2> https://maps.google.com/maps?z=12&t=m&q=loc:{latitude}+{longitude}" \
+              f"<h2>קישור לצ'אט עם מדווח האירוע</h2>" \
+              f"<h3>http://localhost:3000/chat</h3>"
+
     return content
 
 

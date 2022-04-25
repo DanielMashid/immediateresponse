@@ -5,12 +5,11 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 const useStyles = makeStyles((theme) => ({
     button: {
-        margin: theme.spacing(1),
+        margin: theme.spacing(3),
         color: "black",
-        backgroundColor: "orangered",
-        padding: '0 30px',
-        marginTop: "40%",
-        marginLeft: "35%"
+        backgroundColor: "red",
+        fontWeight:"bold",
+
     },
 }));
 
@@ -25,7 +24,7 @@ function CancelButton() {
                 startIcon={<DeleteIcon/>}
 
             >
-                ביטול אירוע
+                סיום אירוע
             </Button>
             {/* This Button uses a Font Icon, see the installation instructions in the Icon component docs. */}
         </div>
