@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React, {useContext} from "react";
 import "./IncidentsScreenGrid.css";
-import { Button, ButtonGroup } from "@material-ui/core";
-import { Link, useNavigate } from "react-router-dom";
 import IncidentContext from "../../context/IncidentContext";
 import Report_incident from "../../Services/api/api";
+import {Link} from "react-router-dom";
 
 function SimpleText() {
 
@@ -13,16 +12,13 @@ function SimpleText() {
     const [longitude, setLongitude] = React.useState(null);
 
     const getLocation = () => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(getCoordinates, handlerLocationError);
-            printState()
-        } else {
-            alert("Geolocation is not supported by this browser.")
-        }
+        navigator.geolocation.getCurrentPosition(getCoordinates, handlerLocationError);
     }
-    const getCoordinates = (position) => {
-        setLatitude(position.coords.latitude)
-        setLongitude(position.coords.longitude)
+    const getCoordinates =  ({coords}) => {
+        setLatitude(coords.latitude)
+        setLongitude(coords.longitude)
+        console.log(latitude)
+        console.log(longitude)
     }
     const handlerLocationError = (error) => {
         switch (error.code) {
@@ -39,47 +35,84 @@ function SimpleText() {
                 alert("An unknown error occurred.");
         }
     }
-    const printState = () => {
-        console.log(longitude, latitude)
-    }
-    const reportIncidentOnClick = (event) => {
-        console.log("button id = " + event.currentTarget.id);
+    const reportIncidentOnClick = (incident) => {
+        console.log("button id = " + incident);
         getLocation();
         console.log("before api --> " + latitude)
         console.log("before api --> " + longitude)
-        Report_incident.report_incident_by_mail(event.currentTarget.id, latitude, longitude).then( r => console.log(r));
-        incidentContext.incident = event.currentTarget.id;
+        Report_incident.report_incident_by_mail(incident, latitude, longitude)
+        incidentContext.incident = incident;
         console.log(incidentContext);
     }
 
     return (
-        <section>
-            <div className="mainText3">
-                <ButtonGroup className="mainText5">
-                    <Link to="/chat">
-                    <Button id={"estuary_incident"} onClick={reportIncidentOnClick}>שפך</Button>
-                    </Link>
-                    <Link to="/chat">
-                    <Button id={'security_incident'} onClick={reportIncidentOnClick}>אירוע ביטחוני</Button>
-                    </Link>
-                    <Link to="/chat">
-                    <Button id={'safety_person_incident'} onClick={reportIncidentOnClick}>בטיחות פגיעה באדם</Button>
-                    </Link>
-                </ButtonGroup>
-            </div>
-            <div className="mainText4">
-                <ButtonGroup className="mainText5">
-                    <Link to="/chat">
-                    <Button id={'fire_incident'} onClick={reportIncidentOnClick}>שריפה</Button>
-                    </Link>
-                    <Link to="/chat">
-                    <Button id={'materials_incident'} onClick={reportIncidentOnClick}>חומר מעשן</Button>
-                    </Link>
-                    <Link to="/chat">
-                    <Button id={'safety_property_incident'} onClick={reportIncidentOnClick}>בטיחות פגיעה ברכוש</Button>
-                    </Link>
-                </ButtonGroup>
-            </div>
+        <section className="incidents-grid-container">
+            <Link to="/chat">
+                <div onClick={() => reportIncidentOnClick('estuary_incident')} className="incident">
+                    <img/>
+                    <p>שפך</p>
+                </div>
+            </Link>
+            <Link to="/chat">
+                <div onClick={() => reportIncidentOnClick('fire_incident')} className="incident">
+                    <img/>
+
+                    <p>שריפה</p>
+                </div>
+            </Link>
+            <Link to="/chat">
+                <div onClick={() => reportIncidentOnClick('security_incident')} className="incident">
+                    <img/>
+
+                    <p>אירוע ביטחוני</p>
+                </div>
+            </Link>
+            <Link to="/chat">
+                <div onClick={() => reportIncidentOnClick('materials_incident')} className="incident">
+                    <img/>
+
+                    <p>חומר מעשן</p>
+                </div>
+            </Link>
+            <Link to="/chat">
+                <div onClick={() => reportIncidentOnClick('safety_person_incident')} className="incident">
+                    <img/>
+
+                    <p>פגיעה בחיי אדם</p>
+                </div>
+            </Link>
+            <Link to="/chat">
+                <div onClick={() => reportIncidentOnClick('safety_property_incident')} className="incident">
+                    <img/>
+
+                    <p>בטיחות פגיעה ברכוש</p>
+                </div>
+            </Link>
+            {/*<div className="mainText3">*/}
+            {/*    <ButtonGroup className="mainText5">*/}
+            {/*        <Link to="/chat">*/}
+            {/*        <Button id={"estuary_incident"} onClick={reportIncidentOnClick}>שפך</Button>*/}
+            {/*        </Link>*/}
+            {/*        <Link to="/chat">*/}
+            {/*        <Button id={'security_incident'} onClick={reportIncidentOnClick}>אירוע ביטחוני</Button>*/}
+            {/*        </Link>*/}
+            {/*        <Link to="/chat">*/}
+            {/*        <Button id={'safety_person_incident'} onClick={reportIncidentOnClick}>בטיחות פגיעה באדם</Button>*/}
+            {/*        </Link>*/}
+            {/*    </ButtonGroup>*/}
+            {/*</div>*/}
+            {/*<div className="mainText4"><ButtonGroup className="mainText5">*/}
+            {/*        <Link to="/chat">*/}
+            {/*        <Button id={'fire_incident'} onClick={reportIncidentOnClick}>שריפה</Button>*/}
+            {/*        </Link>*/}
+            {/*        <Link to="/chat">*/}
+            {/*        <Button id={'materials_incident'} onClick={reportIncidentOnClick}>חומר מעשן</Button>*/}
+            {/*        </Link>*/}
+            {/*        <Link to="/chat">*/}
+            {/*        <Button id={'safety_property_incident'} onClick={reportIncidentOnClick}>בטיחות פגיעה ברכוש</Button>*/}
+            {/*        </Link>*/}
+            {/*    </ButtonGroup>*/}
+            {/*</div>*/}
         </section>
     );
 }

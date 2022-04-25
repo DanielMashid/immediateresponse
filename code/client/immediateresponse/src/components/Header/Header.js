@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import {Modal} from "../Modal/modal";
+import './Header.css'
 
 
 const pages = ['מסך ראשי', 'האירועים שלי', 'התנתק'];
@@ -43,16 +44,6 @@ const Header = () => {
         <AppBar position="static" sx={{bgcolor: "#b21800", color: "black"}}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{mr: 2, display: {xs: 'none', md: 'flex'}}}
-
-                    >
-                        תגובה מיידית
-                    </Typography>
-
                     <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
                         <IconButton
                             size="large"
@@ -94,12 +85,15 @@ const Header = () => {
                     <Typography
                         variant="h6"
                         noWrap
+                        className="app-header"
                         component="div"
-                        sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}
+                        sx={
+                            {fontWeight: 'bold',flexGrow: 1, display: {xs: 'flex', md: 'none'}}
+                        }
                     >
                         תגובה מיידית
                     </Typography>
-                    <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
+                    <Box sx={{fontWeight: 'bold',flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
                         {pages.map((page) => (
                             <Button
                                 key={page}
@@ -110,36 +104,6 @@ const Header = () => {
                             </Button>
                         ))}
                     </Box>
-
-                    {/*<Box sx={{flexGrow: 0}}>*/}
-                    {/*    <Tooltip title="Open settings">*/}
-                    {/*        <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>*/}
-                    {/*            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg"/>*/}
-                    {/*        </IconButton>*/}
-                    {/*    </Tooltip>*/}
-                    {/*    <Menu*/}
-                    {/*        sx={{mt: '45px'}}*/}
-                    {/*        id="menu-appbar"*/}
-                    {/*        anchorEl={anchorElUser}*/}
-                    {/*        anchorOrigin={{*/}
-                    {/*            vertical: 'top',*/}
-                    {/*            horizontal: 'right',*/}
-                    {/*        }}*/}
-                    {/*        keepMounted*/}
-                    {/*        transformOrigin={{*/}
-                    {/*            vertical: 'top',*/}
-                    {/*            horizontal: 'right',*/}
-                    {/*        }}*/}
-                    {/*        open={Boolean(anchorElUser)}*/}
-                    {/*        onClose={handleCloseUserMenu}*/}
-                    {/*    >*/}
-                    {/*        {settings.map((setting) => (*/}
-                    {/*            <MenuItem key={setting} onClick={handleCloseUserMenu}>*/}
-                    {/*                <Typography textAlign="center">{setting}</Typography>*/}
-                    {/*            </MenuItem>*/}
-                    {/*        ))}*/}
-                    {/*    </Menu>*/}
-                    {/*</Box>*/}
                 </Toolbar>
                 <Modal modalClassName={modalClassName} setModalClass={setModalClass} />
             </Container>

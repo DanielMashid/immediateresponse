@@ -1,17 +1,20 @@
-.mainText3 {
-    position: absolute;
-    left: 60%;
 
+.incidents-grid-container {
+ display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    row-gap: 15px;
 }
-
-.mainText4 {
-    position: absolute;
-    left: 10%;
-
+.incident {
+    background-color: #a2a2a2;
+    display: flex;
+    justify-content: center;
+    height: 120px;
+    width: 120px;
+    border-radius: 8px;
 }
-
-.mainText5 {
-    flex-direction: column;
-    background: darkgray;
+.incident p {
+text-align: center;
+    font-weight: bold;
+    color: darkred;
 }
-
