@@ -1,3 +1,21 @@
 .app-header {
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    background: #D5212A;
+    color: white;
+    height: 73px;
+
+}
+.app-header .header-title {
+    padding-top: 20px;
+    font-family: heebo,sans-serif;
+    font-size: 20px;
+}
+.hamburger {
+    position: absolute;
+    right: 30px;
+    top: 29px;
 }

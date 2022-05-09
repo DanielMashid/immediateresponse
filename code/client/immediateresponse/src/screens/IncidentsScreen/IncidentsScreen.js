@@ -1,25 +1,13 @@
 import React from "react";
-import IncidentsScreenTopText from "../../components/IncidentsScreenBody/IncidentsScreenTopText";
 import IncidentsScreenGrid from "../../components/IncidentsScreenBody/IncidentsScreenGrid";
-import IncidentScreenCancelButton from "../../components/IncidentsScreenBody/IncidentScreenCancelButton";
-import { CssBaseline } from "@mui/material";
-import { Link } from "react-router-dom";
-import HeaderIncident from "../../components/HeaderIncident/HeaderIncident";
-
+import {CssBaseline} from "@mui/material";
+import Header from "../../components/Header/Header";
 
 const IncidentsScreen = () => {
     return (
         <CssBaseline>
-            <HeaderIncident />
-            <IncidentsScreenTopText/>
+            <Header title="בחירת אירוע"/>
             <IncidentsScreenGrid/>
-            
-            <Link to="/sos">
-
-              <IncidentScreenCancelButton/>
-
-            </Link>
-            
         </CssBaseline>
     )
 }

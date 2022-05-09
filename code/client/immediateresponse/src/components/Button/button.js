@@ -9,7 +9,7 @@ import useStyles from './styles'
 
   return (
     <Stack direction="row" spacing={2}>
-    <Button variant="contained" style={{ background: 'black' ,color : "white",width:"100%"}}>   Login </Button>
+    <Button variant="contained" style={{ background: '#9E1C22' ,color : "white",width:"250px", fontSize: "15px"}}>התחבר</Button>
     </Stack>
   );
 }

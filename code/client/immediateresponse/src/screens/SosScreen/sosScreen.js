@@ -1,23 +1,26 @@
 import React from 'react'
 import Header from '../../components/Header/Header'
-import { CssBaseline } from '@material-ui/core'
-import sosButton from '../../components/SosButton/sosButton'
-import SaveAndHoldButton from '../../components/SaveAndHoldButton/saveAndHoldPlaceHolder'
-import { Link } from 'react-router-dom'
+import {CssBaseline} from '@material-ui/core'
+import {Link} from 'react-router-dom'
+import {SosButton} from "../../components/SosButton/SosButton";
+import './sosScreen.css'
 
-function sosScreen() {
-  return (
+const sosScreen = () => {
+    return (
         <CssBaseline>
-          <Header />
-          <div align="center" >
-            <Link to="/incidents">
-              <img src={sosButton} alt="sosButton"></img>
-            </Link>
-            <img src={SaveAndHoldButton} alt="SaveAndHoldButton"></img>
-          </div>
+            <Header title="דף הבית"/>
+            <div
+                className="sos-page"
+            >
+                <Link to="/incidents">
+                    <SosButton/>
+                </Link>
+            </div>
+            <SosButton/>
         </CssBaseline>
-
-  )
+    )
 }
 
-export default sosScreen
+export default sosScreen;
+
+
