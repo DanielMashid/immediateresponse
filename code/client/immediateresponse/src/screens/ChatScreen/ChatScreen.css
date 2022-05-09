@@ -1,38 +1,38 @@
 .ChatScreen {
-  text-align: center;
+    text-align: center;
 }
 
 .ChatScreen-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .ChatScreen-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .ChatScreen-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 .ChatScreen-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .ChatScreen-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 @keyframes ChatScreen-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

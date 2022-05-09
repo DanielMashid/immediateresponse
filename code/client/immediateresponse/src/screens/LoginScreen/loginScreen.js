@@ -1,23 +1,23 @@
-import HeaderLogin from "../../components/HeaderLogin/HeaderLogin";
+import './loginScreen.css'
 import UserDetails from "../../components/LoginScreenBody/UserDetails";
-import ImmediateResponseImg from "../../components/ImmediateResponseImg/ImmediateResponseImg";
 import LoginButton from "../../components/Button/button";
-import { CssBaseline } from "@mui/material";
-import { Link } from "react-router-dom";
+import {CssBaseline} from "@mui/material";
+import {Link} from "react-router-dom";
+import {LoginLogo} from "../../components/LoginLogo/loginLogo";
 
 const LoginScreen = () => {
-  return (
-    <CssBaseline>
-      <HeaderLogin />
-      <UserDetails />
 
-      <Link to="/sos">
-        <LoginButton />
-      </Link>
-
-      <ImmediateResponseImg />
-    </CssBaseline>
-  );
+    return (
+        <CssBaseline>
+            <div className="login-screen-container">
+                <LoginLogo/>
+                <UserDetails/>
+                <Link to="/sos">
+                    <LoginButton/>
+                </Link>
+            </div>
+        </CssBaseline>
+    );
 };
 
 export default LoginScreen;

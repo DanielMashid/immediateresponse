@@ -1,24 +1,28 @@
-import React, {useContext} from "react";
+import React from "react";
 import "./IncidentsScreenGrid.css";
-import IncidentContext from "../../context/IncidentContext";
 import Report_incident from "../../Services/api/api";
 import {Link} from "react-router-dom";
+import fire from "../assets/fire.png"
+import estuary from "../assets/estuary.png"
+import materials from "../assets/materials.png"
+import security from "../assets/security.png"
+import safety from "../assets/safety_person.png"
+import property from "../assets/safety_property.png"
 
 function SimpleText() {
 
-    const incidentContext = useContext(IncidentContext);
-
-    const [latitude, setLatitude] = React.useState(null);
-    const [longitude, setLongitude] = React.useState(null);
+    let incident;
 
     const getLocation = () => {
-        navigator.geolocation.getCurrentPosition(getCoordinates, handlerLocationError);
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(getCoordinates, handlerLocationError);
+        } else {
+            alert("Geolocation is not supported by this browser.")
+        }
     }
     const getCoordinates =  ({coords}) => {
-        setLatitude(coords.latitude)
-        setLongitude(coords.longitude)
-        console.log(latitude)
-        console.log(longitude)
+        Report_incident.report_incident_by_mail(incident, coords.latitude, coords.longitude)
+            .then(r => console.log(r))
     }
     const handlerLocationError = (error) => {
         switch (error.code) {
@@ -35,84 +39,66 @@ function SimpleText() {
                 alert("An unknown error occurred.");
         }
     }
-    const reportIncidentOnClick = (incident) => {
-        console.log("button id = " + incident);
+    const reportIncidentOnClick = (currIncident) => {
+        incident = currIncident
         getLocation();
-        console.log("before api --> " + latitude)
-        console.log("before api --> " + longitude)
-        Report_incident.report_incident_by_mail(incident, latitude, longitude)
-        incidentContext.incident = incident;
-        console.log(incidentContext);
     }
 
     return (
         <section className="incidents-grid-container">
+            <div className="title-container">
+                <p>בחר אירוע חירום המתרחש</p>
+            </div>
+            <div className="incidents-container">
             <Link to="/chat">
                 <div onClick={() => reportIncidentOnClick('estuary_incident')} className="incident">
-                    <img/>
+                    <img className="incident-img" src={estuary}/>
                     <p>שפך</p>
                 </div>
             </Link>
             <Link to="/chat">
                 <div onClick={() => reportIncidentOnClick('fire_incident')} className="incident">
-                    <img/>
+                    <img className="incident-img-big" src={fire}/>
 
                     <p>שריפה</p>
                 </div>
             </Link>
             <Link to="/chat">
                 <div onClick={() => reportIncidentOnClick('security_incident')} className="incident">
-                    <img/>
+                    <img className="incident-img" src={security}/>
 
                     <p>אירוע ביטחוני</p>
                 </div>
             </Link>
             <Link to="/chat">
                 <div onClick={() => reportIncidentOnClick('materials_incident')} className="incident">
-                    <img/>
+                    <img className="incident-img-big" src={materials}/>
 
                     <p>חומר מעשן</p>
                 </div>
             </Link>
             <Link to="/chat">
                 <div onClick={() => reportIncidentOnClick('safety_person_incident')} className="incident">
-                    <img/>
+                    <img className="incident-img" src={safety}/>
 
                     <p>פגיעה בחיי אדם</p>
                 </div>
             </Link>
             <Link to="/chat">
                 <div onClick={() => reportIncidentOnClick('safety_property_incident')} className="incident">
-                    <img/>
+                    <img className="incident-img-big2" src={property}/>
 
-                    <p>בטיחות פגיעה ברכוש</p>
+                    <p>פגיעה ברכוש</p>
                 </div>
             </Link>
-            {/*<div className="mainText3">*/}
-            {/*    <ButtonGroup className="mainText5">*/}
-            {/*        <Link to="/chat">*/}
-            {/*        <Button id={"estuary_incident"} onClick={reportIncidentOnClick}>שפך</Button>*/}
-            {/*        </Link>*/}
-            {/*        <Link to="/chat">*/}
-            {/*        <Button id={'security_incident'} onClick={reportIncidentOnClick}>אירוע ביטחוני</Button>*/}
-            {/*        </Link>*/}
-            {/*        <Link to="/chat">*/}
-            {/*        <Button id={'safety_person_incident'} onClick={reportIncidentOnClick}>בטיחות פגיעה באדם</Button>*/}
-            {/*        </Link>*/}
-            {/*    </ButtonGroup>*/}
-            {/*</div>*/}
-            {/*<div className="mainText4"><ButtonGroup className="mainText5">*/}
-            {/*        <Link to="/chat">*/}
-            {/*        <Button id={'fire_incident'} onClick={reportIncidentOnClick}>שריפה</Button>*/}
-            {/*        </Link>*/}
-            {/*        <Link to="/chat">*/}
-            {/*        <Button id={'materials_incident'} onClick={reportIncidentOnClick}>חומר מעשן</Button>*/}
-            {/*        </Link>*/}
-            {/*        <Link to="/chat">*/}
-            {/*        <Button id={'safety_property_incident'} onClick={reportIncidentOnClick}>בטיחות פגיעה ברכוש</Button>*/}
-            {/*        </Link>*/}
-            {/*    </ButtonGroup>*/}
-            {/*</div>*/}
+            </div>
+            <Link to="/sos">
+            <div className="btn-container">
+                <button className="end-btn">
+                    סיום אירוע
+                </button>
+            </div>
+            </Link>
         </section>
     );
 }

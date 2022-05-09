@@ -18,30 +18,32 @@ supervisorMail = {
 
 # temporary dictionary
 contentHeaderMail = {
-    "estuary_incident": '<h1>התקבלה התרעה על שפך</h1>',
-    "security_incident": '<h1>התקבלה התרעה על אירוע ביטחוני</h1>',
-    "safety_person_incident": '<h1>התקבלה התרעה על בטיחות פגיעה באדם</h1>',
-    "fire_incident": '<h1>התקבלה התרעה על שריפה</h1>',
-    "materials_incident": '<h1>התקבלה התרעה על חומר מעשן</h1>',
-    "safety_property_incident": '<h1>התקבלה התרעה על בטיחות פגיעה ברכוש</h1>',
+    "estuary_incident": 'שפך',
+    "security_incident": 'אירוע ביטחוני',
+    "safety_person_incident": 'פגיעה באדם',
+    "fire_incident": 'שריפה',
+    "materials_incident": 'חומר מעשן',
+    "safety_property_incident": 'פגיעה ברכוש',
 }
 
 subject = 'תגובה מיידית-התקבלה התראה חדשה'
 from_email = 'immediate.response.sos@gmail.com'
 
 
-def mail_content(latitude, longitude):
-    content = f"<h2>מיקום האירוע</h2>" \
+def mail_content(latitude, longitude, id_incident):
+    incident_type = contentHeaderMail[id_incident]
+    content = f'<h1>התקבלה התרעת בטיחות: {incident_type}</h1>'\
+              f"<h2>פרטי האירוע:</h2>" \
+              f"<h3>מיקום האירוע (קווי אורך ורוחב)</h3>" \
               f"<p>latitude is: {latitude}</p> <p>longitude is: {longitude}</p>" \
-              f"<h2>Google Maps Reverse Geolocation</h2> https://maps.google.com/maps?z=12&t=m&q=loc:{latitude}+{longitude}" \
-              f"<h2>קישור לצ'אט עם מדווח האירוע</h2>" \
-              f"<h3>http://localhost:3000/chat</h3>"
-
+              f'<a href = "https://maps.google.com/maps?z=12&t=m&q=loc: {latitude}+{longitude}" target = "blank">' \
+              "<h2>Google Maps</h2>" \
+              f"<a href = ""http://localhost:3000/chat"" target = ""blank"">""<h2>Online Chat</h2>"
     return content
 
 
 def send_email(id_incident, latitude, longitude):
-    content = contentHeaderMail[id_incident] + mail_content(latitude, longitude)
+    content = mail_content(latitude, longitude, id_incident)
     print(content)
     message = Mail(
         from_email=from_email,
@@ -51,7 +53,6 @@ def send_email(id_incident, latitude, longitude):
     )
     print(message)
     try:
-        # sg = SendGridAPIClient('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')
         print("API Key: " + SENDGRID_API_KEY)
         sg = SendGridAPIClient("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")
         response = sg.send(message)

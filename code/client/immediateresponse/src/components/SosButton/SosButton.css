@@ -1,0 +1,26 @@
+.sos-container{
+    position: absolute;
+    bottom: -5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: transform 0.3s;
+
+}
+.sos-container.pressed{
+    transform: scale(0.9);
+    filter: grayscale(20%);
+
+}
+
+.sos-container p.timer {
+    color: white;
+    font-size: 25px;
+    position: absolute;
+    top: 65px;
+    font-weight: bold;
+}
+
+.sos-container img.sos-img {
+    width: 350px;
+}
