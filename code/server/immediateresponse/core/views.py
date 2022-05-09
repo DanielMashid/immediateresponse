@@ -1,6 +1,5 @@
 
 from django.http import HttpResponse
-
 from .mail import send_email
 from .serializer import EventSerializer
 from .models import Event
@@ -45,12 +44,8 @@ def get_incident(request):
 
 @api_view(["POST"])
 def report_incident_by_mail(request):
-    # print(f"Request = {request.POST}")
-    id_incident = request.data.get('id_incident')
+    id_incident = request.data.get('incident')
     latitude = request.data.get('latitude')
     longitude = request.data.get('longitude')
-    print("in views , id =" + id_incident)
-    print("in views , id =" + str(latitude))
-    print("in views , id =" + str(longitude))
     send_email(id_incident, latitude, longitude)
     return HttpResponse("ok")

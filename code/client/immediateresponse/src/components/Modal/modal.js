@@ -8,10 +8,11 @@ import Avatar from '@mui/material/Avatar'
 
 export const Modal = ({modalClassName, setModalClass}) => {
 
+    const modalClass = modalClassName ? 'modal-container open' : 'modal-container'
 
     return (
-        <div className={modalClassName}>
-            <div className="top">
+        <div className={modalClass}>
+            <div className="top flex column">
                 <div className="name-container">
                     <Avatar
                         src={'https://www.w3schools.com/howto/img_avatar.png'}
@@ -21,44 +22,45 @@ export const Modal = ({modalClassName, setModalClass}) => {
                         }}
                     >
                     </Avatar>
-                    <p>דני דניאל</p>
                 </div>
+                <p className="user-name">ליאור כהן</p>
+                <p className="user-role">ממונה בטיחות, אינטל</p>
             </div>
             <div className="bottom">
                 <div className="links-container">
-                    <Link to="/sos">
-                    <div onClick={() => {
-                        setModalClass('modal-container')
-                    }} className="link-container">
-                        <p>מסך הבית</p>
-                        <div className="icon-container">
-                            <HomeIcon/>
-                        </div>
-                    </div>
-                    </Link>
                     <div className="link-container">
                         <p>
                             אירועים שלי
                         </p>
-                        <div className="icon-container">
-                            <EventNoteIcon/>
-                        </div>
+
+                    </div>
+                    <div className="link-container">
+                        <p>
+                             משימות בחירום
+                        </p>
+
+                    </div>
+                    <div className="link-container">
+                        <p>
+                             טלפונים חשובים
+                        </p>
+
+                    </div>
+                    <div className="link-container">
+                        <p>
+                            Language
+                        </p>
+
                     </div>
                     <Link to="/">
 
-
-                    <div onClick={()=> {
-                        setModalClass('modal-container')
-
+                    <div  onClick={() => {
+                        setModalClass(!modalClassName)
                     }} className="link-container">
-                        <p>
-                            התנתק
-                        </p>
-                        <div className="icon-container">
-                            <LogoutIcon/>
-                        </div>
+                        <p>התנתק</p>
                     </div>
                     </Link>
+
                 </div>
             </div>
 
