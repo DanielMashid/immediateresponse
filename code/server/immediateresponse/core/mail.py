@@ -9,7 +9,7 @@ SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY", default=None)
 # temporary dictionary
 supervisorMail = {
     "estuary_incident": ["danielmashid1@gmail.com"],
-    "security_incident": ["danielmashid1@gmail.com"],
+    "security_incident": ["dorx33@gmail.com"],
     "safety_person_incident": ["danielmashid1@gmail.com"],
     "fire_incident": ["danielmashid1@gmail.com"],
     "materials_incident": ["danielmashid1@gmail.com"],
@@ -54,7 +54,8 @@ def send_email(id_incident, latitude, longitude):
     print(message)
     try:
         print("API Key: " + SENDGRID_API_KEY)
-        sg = SendGridAPIClient("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")
+        sg = SendGridAPIClient(
+            "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")
         response = sg.send(message)
         print(response)
     except Exception as e:
