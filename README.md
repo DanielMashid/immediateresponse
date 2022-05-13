@@ -1,6 +1,6 @@
 # ImmediateResponse
 
-Dor and Daniel
+
 
 ## Getting started
 
