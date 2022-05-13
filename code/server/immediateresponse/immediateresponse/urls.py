@@ -13,16 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.conf import settings
 from django.contrib import admin
-from django.urls import path,include
-# from core import urls as immediateresponse_urls
-
-api_prefix = settings.API_PREFIX
+from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('core.urls')),
-    # path(f'{api_prefix}', include(immediateresponse_urls)),
-    path('chat/', include('chat.urls'))
 ]
