@@ -200,3 +200,4 @@ class ChatScreen extends Component {
 }
 
 export default withStyles(useStyles)(ChatScreen);
+

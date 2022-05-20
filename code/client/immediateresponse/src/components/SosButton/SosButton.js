@@ -34,18 +34,17 @@ export const SosButton = () => {
         }
     };
 
-    const pressingDown = (e)  => {
-        console.log('start');
+    const pressingDown = (e) => {
+        if (e.changedTouches.length > 1) e.preventDefault();
         setSosClass('sos-container pressed')
-        e.preventDefault();
         counter = 4;
         timer(true);
     };
 
     const notPressingDown = (e) => {
+         e.preventDefault();
         console.log('stop');
         setSosClass('sos-container')
-        e.preventDefault();
         timer(false);
         setMs(4);
         clearInterval(fixedinterval.current);

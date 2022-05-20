@@ -40,10 +40,11 @@ img.incident-img-big2 {
 
 
 .btn-container {
-    padding-inline-start: 30px;
+    padding-inline-end: 30px;
 
     padding-top: 40px;
     display: flex;
+    justify-content: right;
 }
 
 button.end-btn {
