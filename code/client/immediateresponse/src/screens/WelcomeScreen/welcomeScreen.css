@@ -1,0 +1,63 @@
+.welcome-screen-container {
+    width: 100%;
+    height: 100vh;
+}
+
+.white-rec {
+    position: absolute;
+    width: 130px;
+    height: 381px;
+    left: 180px;
+    top: 0px;
+
+}
+
+.red-rec {
+    position: absolute;
+    width: 133px;
+    height: 381px;
+    left: 83px;
+    top: 0px;
+
+}
+
+.logo {
+    position: absolute;
+    left: 121px;
+    top: 196px;
+    width: 150px;
+    height: 150px;
+    z-index: 20;
+}
+
+.red {
+    position: absolute;
+    width: 423px;
+    height: 120.5px;
+    left: -30px;
+    top: 400px;
+    z-index: 10;
+}
+
+.dark-red {
+    position: absolute;
+    width: 423px;
+    height: 120.5px;
+    left: -30px;
+    top: 433.5px;
+}
+
+.text {
+    position: absolute;
+    z-index: 100;
+    top: 434px;
+    right: 66px;
+
+}
+
+.text-small {
+    position: absolute;
+    z-index: 100;
+    top: 482px;
+    right: 78px;
+}

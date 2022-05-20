@@ -7,11 +7,13 @@ const $axios = Axios.create({
 
 class Report_incident {
   static report_incident_by_mail(incident, latitude, longitude) {
+    console.log("report_incident_by_mail")
+    //console.log("in api" + incident + latitude + longitude)
     return $axios.post("report_incident_by_mail/", {
       incident,
       latitude,
       longitude,
-    });
+    }).then(response => response.data);
   }
 }
 
