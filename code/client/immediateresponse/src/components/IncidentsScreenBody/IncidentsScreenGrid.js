@@ -49,7 +49,6 @@ function SimpleText() {
   };
   const reportIncidentOnClick = (currIncident) => {
     incident = currIncident;
-    console.log("xxx in incident screen", incident);
     getLocation();
     getOneIncident(incident);
     incidentContext.incident = incident;

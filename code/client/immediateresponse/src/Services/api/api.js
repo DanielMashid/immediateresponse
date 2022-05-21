@@ -45,6 +45,24 @@ class Chat_API {
       })
       .then((response) => response.data);
   }
+
+  static get_messages(room) {
+    return $axios2
+      .get("get-chatroom/", {
+        params: { room_id: room },
+      })
+      .then((response) => response.data);
+  }
+
+  static new_msg(room, user, data) {
+    return $axios2
+      .post("new_msg/", {
+        room_id: room,
+        user: user,
+        content: data,
+      })
+      .then((response) => response.data);
+  }
 }
 
 const apiServices = {
