@@ -1,12 +1,11 @@
-import React from 'react'
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Login from './screens/LoginScreen/loginScreen';
-import Sos from './screens/SosScreen/sosScreen'
-import Incidents from './screens/IncidentsScreen/IncidentsScreen'
-import {ChatDemo} from './components/ChatDemo/ChatDemo'
-import Chat from './screens/ChatScreen/chatScreen'
-import {WelcomeScreen} from "./screens/WelcomeScreen/welcomeScreen";
-
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./screens/LoginScreen/loginScreen";
+import Sos from "./screens/SosScreen/sosScreen";
+import Incidents from "./screens/IncidentsScreen/IncidentsScreen";
+import { ChatDemo } from "./components/ChatDemo/ChatDemo";
+import Chat from "./screens/ChatScreen/chatScreen";
+import { WelcomeScreen } from "./screens/WelcomeScreen/welcomeScreen";
 
 function App() {
   return (
@@ -23,6 +22,5 @@ function App() {
       </Router>
     </div>
   );
-
 }
 export default App;

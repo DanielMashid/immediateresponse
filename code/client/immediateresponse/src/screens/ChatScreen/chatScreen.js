@@ -10,6 +10,7 @@ import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import Paper from "@material-ui/core/Paper";
 import Avatar from "@material-ui/core/Avatar";
+
 import Header from "../../components/Header/Header";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -96,6 +97,14 @@ class ChatScreen extends Component {
             <button className="end-btn">סיום אירוע</button>
           </Link>
         </div>
+        <div className="container">
+          <div className="chat-container">
+            <p>
+              צ’אט זה נועד לניהול אירועי חירום. נא לשלוח הודעות קצרות וממוקדות
+              על מנת שנוכל להימנע משיח מיותר
+            </p>
+          </div>
+        </div>
 
         <Container component="main" maxWidth="xs" background="#E5E5E5">
           {this.state.isLoggedIn ? (
@@ -103,10 +112,11 @@ class ChatScreen extends Component {
               {/* Room Name: {this.state.room} */}
               <Paper
                 style={{
-                  height: 500,
+                  height: 410,
                   maxHeight: 500,
                   overflow: "auto",
                   boxShadow: "none",
+                  border: "1px solid",
                 }}
               >
                 {this.state.messages.map((message) => (
