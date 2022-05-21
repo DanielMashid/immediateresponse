@@ -9,16 +9,6 @@ from rest_framework.decorators import api_view
 import json
 
 
-# def index(request):
-#     return render(request, 'chat/index.html', {})
-
-
-# def room(request, room_name):
-#     return render(request, 'chat/room.html', {
-#         'room_name': room_name
-#     })
-
-
 @api_view(['GET'])
 def get_chatroom(request):
     # Format
@@ -53,3 +43,22 @@ def new_chatroom(request):
     new_chat_serialized = ChatSerializer(new_chat)
 
     return Response(new_chat_serialized.data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+def new_msg(request):
+    # Format
+    # room_id = int
+    # user = string
+    # content = string
+
+    parsed_contet = json.loads(request.body)
+
+    new_message = Message(
+        user=parsed_contet['user'], content=parsed_contet['content'])
+    new_message.save()
+    chat = Chat.objects.get(pk=parsed_contet['room_id'])
+    chat.messages.add(new_message)
+    chat.save()
+
+    return Response(status=status.HTTP_200_OK)
