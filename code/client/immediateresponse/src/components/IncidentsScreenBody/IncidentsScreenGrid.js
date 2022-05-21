@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./IncidentsScreenGrid.css";
 import apiServices from "../../Services/api/api";
+import IncidentContext from "../../context/IncidentContext";
 import { Link } from "react-router-dom";
 import fire from "../assets/fire.png";
 import estuary from "../assets/estuary.png";
@@ -11,6 +12,8 @@ import property from "../assets/safety_property.png";
 
 function SimpleText() {
   let incident;
+  const incidentContext = useContext(IncidentContext);
+  console.log(incidentContext);
 
   const getLocation = () => {
     if (navigator.geolocation) {
@@ -46,13 +49,14 @@ function SimpleText() {
   };
   const reportIncidentOnClick = (currIncident) => {
     incident = currIncident;
+    console.log("xxx in incident screen", incident);
     getLocation();
     getOneIncident(incident);
+    incidentContext.incident = incident;
   };
 
   //verify that we can get (filter) incidents by name
   const getOneIncident = async (incident) => {
-    console.log("We are here incident " + incident);
     let temp = await apiServices.Get_incident.get_incident(incident);
     console.log(temp);
   };
