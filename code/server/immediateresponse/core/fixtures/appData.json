@@ -1,0 +1,100 @@
+[
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$apjaXbzoR2TqisitDASjQZ$bFQtxvRX0cNNcuGtXqm/tJnmUcAlqIsPhrQGhv0mXe8=",
+        "last_login": "2022-05-23T14:39:27.180Z",
+        "is_superuser": true,
+        "username": "administrator",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2022-05-23T14:30:20.708Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$Tte9hCSdB9wjzIlfWa4h9P$wIBLIHlMCfZdXPrmXlF6Eb/hnbDdPQUEhZIY5EdMSqg=",
+        "last_login": null,
+        "is_superuser": true,
+        "username": "dor",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2022-05-23T14:30:39.966Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "core.event",
+    "pk": 59,
+    "fields": {
+        "reported_user": 1,
+        "longitude": "34.5860716",
+        "latitude": "31.5213475",
+        "description": "estuary_incident"
+    }
+},
+{
+    "model": "core.event",
+    "pk": 60,
+    "fields": {
+        "reported_user": 1,
+        "longitude": "34.5860716",
+        "latitude": "31.5213475",
+        "description": "materials_incident"
+    }
+},
+{
+    "model": "core.event",
+    "pk": 61,
+    "fields": {
+        "reported_user": 1,
+        "longitude": "34.5860716",
+        "latitude": "31.5213475",
+        "description": "safety_person_incident"
+    }
+},
+{
+    "model": "core.event",
+    "pk": 62,
+    "fields": {
+        "reported_user": 1,
+        "longitude": "34.5860716",
+        "latitude": "31.5213475",
+        "description": "estuary_incident"
+    }
+},
+{
+    "model": "core.profile",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "organization_number": null,
+        "avatar": null,
+        "phone_number": 508807896,
+        "is_supervisor": true
+    }
+},
+{
+    "model": "core.profile",
+    "pk": 2,
+    "fields": {
+        "user": 2,
+        "organization_number": null,
+        "avatar": null,
+        "phone_number": null,
+        "is_supervisor": null
+    }
+}
+]
