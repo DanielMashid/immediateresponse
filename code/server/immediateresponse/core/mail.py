@@ -8,12 +8,12 @@ SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY", default=None)
 
 # temporary dictionary
 supervisorMail = {
-    "estuary_incident": ["danielmashid1@gmail.com"],
-    "security_incident": ["dorx33@gmail.com"],
-    "safety_person_incident": ["danielmashid1@gmail.com"],
-    "fire_incident": ["danielmashid1@gmail.com"],
-    "materials_incident": ["danielmashid1@gmail.com"],
-    "safety_property_incident": ["danielmashid1@gmail.com"],
+    "estuary_incident": ["danielmashid1@gmail.com", "dorx33@gmail.com", "hay.be.sapir.sos@gmail.com", "immediate.response.sos@gmail.com"],
+    "security_incident": ["danielmashid1@gmail.com", "dorx33@gmail.com", "hay.be.sapir.sos@gmail.com", "immediate.response.sos@gmail.com"],
+    "safety_person_incident": ["danielmashid1@gmail.com", "dorx33@gmail.com", "hay.be.sapir.sos@gmail.com", "immediate.response.sos@gmail.com"],
+    "fire_incident": ["danielmashid1@gmail.com", "dorx33@gmail.com", "hay.be.sapir.sos@gmail.com", "immediate.response.sos@gmail.com"],
+    "materials_incident": ["danielmashid1@gmail.com", "dorx33@gmail.com", "hay.be.sapir.sos@gmail.com", "immediate.response.sos@gmail.com"],
+    "safety_property_incident": ["danielmashid1@gmail.com", "dorx33@gmail.com", "hay.be.sapir.sos@gmail.com", "immediate.response.sos@gmail.com"],
 }
 
 # temporary dictionary
