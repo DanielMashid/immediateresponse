@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
+from os.path import dirname, abspath
+
+from dotenv import load_dotenv
+
+ENV_FILE_DIR = dirname(dirname(abspath(__file__)))
+load_dotenv(os.path.join(ENV_FILE_DIR, '.env'))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -126,10 +132,13 @@ ASGI_APPLICATION = 'immediateresponse.routing.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-API_PREFIX = os.environ.get('API_PREFIX', default='')
 
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels.layers.InMemoryChannelLayer"
     }
 }
+
+API_PREFIX = os.environ.get('API_PREFIX', default='')
+SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY', default=None)
+SERVER_ADDRESS = os.environ.get('SERVER_ADDRESS', default=None)

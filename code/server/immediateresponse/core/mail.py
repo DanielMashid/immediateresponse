@@ -3,17 +3,16 @@
 import os
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
-
-SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY", default=None)
+from django.conf import settings
 
 # temporary dictionary
 supervisorMail = {
-    "estuary_incident": ["danielmashid1@gmail.com", "dorx33@gmail.com", "hay.be.sapir.sos@gmail.com", "immediate.response.sos@gmail.com"],
-    "security_incident": ["danielmashid1@gmail.com", "dorx33@gmail.com", "hay.be.sapir.sos@gmail.com", "immediate.response.sos@gmail.com"],
-    "safety_person_incident": ["danielmashid1@gmail.com", "dorx33@gmail.com", "hay.be.sapir.sos@gmail.com", "immediate.response.sos@gmail.com"],
-    "fire_incident": ["danielmashid1@gmail.com", "dorx33@gmail.com", "hay.be.sapir.sos@gmail.com", "immediate.response.sos@gmail.com"],
-    "materials_incident": ["danielmashid1@gmail.com", "dorx33@gmail.com", "hay.be.sapir.sos@gmail.com", "immediate.response.sos@gmail.com"],
-    "safety_property_incident": ["danielmashid1@gmail.com", "dorx33@gmail.com", "hay.be.sapir.sos@gmail.com", "immediate.response.sos@gmail.com"],
+    "estuary_incident": ["dornakashmag@gmail.com", "hay.be.sapir.sos@gmail.com", "immediate.response.sos@gmail.com"],
+    "security_incident": ["dornakashmag@gmail.com", "hay.be.sapir.sos@gmail.com", "immediate.response.sos@gmail.com"],
+    "safety_person_incident": ["dornakashmag@gmail.com", "hay.be.sapir.sos@gmail.com", "immediate.response.sos@gmail.com"],
+    "fire_incident": ["dornakashmag@gmail.com", "hay.be.sapir.sos@gmail.com", "immediate.response.sos@gmail.com"],
+    "materials_incident": ["dornakashmag@gmail.com", "hay.be.sapir.sos@gmail.com", "immediate.response.sos@gmail.com"],
+    "safety_property_incident": ["dornakashmag@gmail.com", "hay.be.sapir.sos@gmail.com", "immediate.response.sos@gmail.com"],
 }
 
 # temporary dictionary
@@ -38,7 +37,7 @@ def mail_content(latitude, longitude, id_incident):
               f"<p>latitude is: {latitude}</p> <p>longitude is: {longitude}</p>" \
               f'<a href = "https://maps.google.com/maps?z=12&t=m&q=loc: {latitude}+{longitude}" target = "blank">' \
               "<h2>Google Maps</h2>" \
-              f"<a href = ""http://localhost:3000/chat"" target = ""blank"">""<h2>Online Chat</h2>"
+              f'<a href = "http://{settings.SERVER_ADDRESS}/chat" target = "blank"><h2>Online Chat</h2>'
     return content
 
 
@@ -53,9 +52,8 @@ def send_email(id_incident, latitude, longitude):
     )
     print(message)
     try:
-        print("API Key: " + SENDGRID_API_KEY)
-        sg = SendGridAPIClient(
-            "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")
+        print("API Key: " + settings.SENDGRID_API_KEY)
+        sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
         response = sg.send(message)
         print(response)
     except Exception as e:
