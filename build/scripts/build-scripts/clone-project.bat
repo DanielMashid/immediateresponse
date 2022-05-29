@@ -2,7 +2,7 @@
 
 echo.
 echo Cloning GIT repositories...
-git clone --quiet --single-branch --branch 24-update-build-system git@gitlab.com:DorNakash/immediateresponse.git
+git clone --quiet --single-branch --branch master git@gitlab.com:DorNakash/immediateresponse.git
 echo.
 echo Cleaning up development code from server...
 pushd %PROJECT_NAME%
