@@ -5,7 +5,7 @@ code/client/**/node_modules
 code/server/src/**/.env
 out
 build/releases
-_pycache_
+__pycache__
 bin
 lib
 lib64
