@@ -15,14 +15,14 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path,include
-# from core import urls as immediateresponse_urls
+from django.urls import path, include
+from core import urls as immediateresponse_urls
 
 api_prefix = settings.API_PREFIX
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('core.urls')),
-    # path(f'{api_prefix}', include(immediateresponse_urls)),
-    path('chat/', include('chat.urls'))
+    # path('',include('core.urls')),
+    path(f'{api_prefix}', include(immediateresponse_urls)),
+    # path('chat/', include('chat.urls'))
 ]
